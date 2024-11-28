@@ -1,6 +1,25 @@
+<?php
+    /**
+     * @author Luis Ferreras González
+     * @version 2024/11/28
+     */
+
+    //Se inicia o reanuda la sesión
+    session_start();
+
+    //Si no se inició sesión anteriormente
+    if(!isset($_SESSION['usuarioDAW208LoginLogoffTema5'])){
+        header("Location: login.php");
+        exit();
+    }
+
+    // Redirige a la página de programa
+    if (isset($_REQUEST['programa'])) {
+        header("Location: programa.php");
+        exit();
+    }
+?>
 <!DOCTYPE html>
-<!--Autor: Luis Ferreras González
-    26/11-->
 <html lang="es">
     <head>
         <meta charset="UTF-8">
@@ -10,18 +29,20 @@
     <body>
         <header>
             <h1>Detalle</h1>
-            <button type="button"><a href="programa.php">Volver</a></button>
+            <form>
+                <input type="submit" name="programa" value="Volver">
+            </form>
         </header>
         <main>
             <?php
-                /**
-                 * @author Luis Ferreras Gonzalez
-                 * @version 26/11/2024
-                 */
                 function mostrarSuperglobal($nombre, $variable){
                     if(!empty($variable)){
                         echo "<h2>$nombre</h2>";
                         foreach($variable as $key=>$value){
+                            // Verificamos si el valor es un objeto y lo convertimos a JSON
+                            if (is_object($value)) {
+                                $value = json_encode($value, JSON_PRETTY_PRINT);
+                            }
                             print_r($key."=>".$value."<br>");
                         }
                     }else{
@@ -30,6 +51,8 @@
                 }
                 if(isset($_SESSION)){
                     mostrarSuperglobal('$_SESSION', $_SESSION);
+                }else{
+                    echo '<h2>La variable $_SESSION está vacia</h2>';
                 }
                 mostrarSuperglobal('$_COOKIE', $_COOKIE);
                 mostrarSuperglobal('$_SERVER', $_SERVER);
