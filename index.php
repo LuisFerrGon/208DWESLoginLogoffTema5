@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--Autor: Luis Ferreras González
-    15/10-->
+    26/11-->
 <html lang="es">
     <head>
         <meta charset="UTF-8">
@@ -10,14 +10,15 @@
     <body>
         <header>
             <h1>Desarrollo Web en Entorno Servidor</h1>
-            <button>Log in</button>
+            <button type="button"><a href="codigoPHP/login.php">Iniciar sesión</a></button>
         </header>
         <main>
             <h2>Index</h2>
         </main>
         <footer>
-            <a href="../208DWESProyectoDWES/indexProyectoDWES.php">Luis Ferreras</a>
-            <a href="">GitHub</a>
+            <a href="../index.html">Luis Ferreras</a>
+            <a href="../208DWESProyectoDWES/indexProyectoDWES.php">DWES</a>
+            <a href="https://github.com/LuisFerrGon/208DWESLoginLogoffTema5">GitHub</a>
         </footer>
     </body>
 </html>
