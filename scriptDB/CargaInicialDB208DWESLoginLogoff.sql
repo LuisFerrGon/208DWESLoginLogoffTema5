@@ -2,12 +2,12 @@
  * Author:  Luis Ferreras
  * Created: 19 nov 2024
  */
-INSERT INTO DB208DWESLoginLogoff.T01_Usuario
+INSERT INTO DB208DWESLoginLogoffTema5.T01_Usuario
     (T01_CodUsuario, T01_Password, T01_DescUsuario, T01_Perfil)
 VALUES
     ('admin', SHA2('adminpaso',256), 'administrador', 'administrador')
 ;
-INSERT INTO DB208DWESLoginLogoff.T01_Usuario
+INSERT INTO DB208DWESLoginLogoffTema5.T01_Usuario
     (T01_CodUsuario, T01_Password, T01_DescUsuario)
 VALUES
     ('victor', SHA2('victorpaso',256), 'Víctor García Gordón'),
@@ -17,7 +17,7 @@ VALUES
     ('heraclio', SHA2('heracliopaso',256), 'Heraclio Borbujo Moran'),
     ('amor', SHA2('amorpaso',256), 'Amor Rodriguez Navarro')
 ;
-INSERT INTO DB208DWESLoginLogoff.T02_Departamento
+INSERT INTO DB208DWESLoginLogoffTema5.T02_Departamento
     (T02_CodDepartamento, T02_DescDepartamento, T02_VolumenDeNegocio)
 VALUES
     ('CMP', 'Compra', 1000),
