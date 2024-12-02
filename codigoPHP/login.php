@@ -1,7 +1,7 @@
 <?php
     /**
      * @author Luis Ferreras González
-     * @version 2024/11/28
+     * @version 2024/12/02
      */
 
     //Se inicia o reanuda la sesión
@@ -135,7 +135,7 @@
         <footer>
             <a href="../../index.html">Luis Ferreras</a>
             <a href="../../208DWESProyectoDWES/indexProyectoDWES.php">DWES</a>
-            <a href="https://github.com/LuisFerrGon/208DWESLoginLogoffTema5">GitHub</a>
+            <a href="https://github.com/LuisFerrGon/208DWESLoginLogoffTema5" target="_blank">GitHub</a>
         </footer>
     </body>
 </html>

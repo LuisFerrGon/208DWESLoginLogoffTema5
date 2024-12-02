@@ -1,7 +1,7 @@
 <?php
     /**
      * @author Luis Ferreras González
-     * @version 2024/11/28
+     * @version 2024/12/02
      */
 
     //Se inicia o reanuda la sesión
@@ -26,7 +26,17 @@
         exit();
     }
     
+    $idioma=isset($_COOKIE['idioma']) ? $_COOKIE['idioma'] : 'en';
     $oUsuarioActivo=$_SESSION['usuarioDAW208LoginLogoffTema5'];
+                $descripcion=$oUsuarioActivo->T01_DescUsuario;
+                $fecha=$oUsuarioActivo->T01_FechaHoraUltimaConexion;
+                $conexiones=$oUsuarioActivo->T01_NumConexiones;
+    $mensaje=[
+        'es'=>[
+           0=>"¡Bienvenido ".$descripcion."! Esta es la primera vez que te conectas.",
+           1=>"¡Bienvenido de nuevo ".$descripcion."! Esta es la ".($conexiones+1)."ª vez que te conectas, te conectaste por última vez el ".date('d/m/Y H:i:s', strtotime($fecha))
+        ]
+    ];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -45,13 +55,10 @@
                 <input type="submit" name="detalle" value="Detalle">
             </form>
             <?php
-                $descripcion=$oUsuarioActivo->T01_DescUsuario;
-                $fecha=$oUsuarioActivo->T01_FechaHoraUltimaConexion;
-                $conexiones=$oUsuarioActivo->T01_NumConexiones;
                 if($conexiones==0){
                     echo "<p>¡Bienvenido ".$descripcion."! Esta es la primera vez que te conectas.</p>";
                 }else{
-                    echo "<p>¡Bienvenido de nuevo ".$descripcion."! Esta es la ".$conexiones." vez que te conectas y te conectaste por última vez el ".date('d/m/Y H:i:s', strtotime($fecha))."</p>";
+                    echo "<p>¡Bienvenido de nuevo ".$descripcion."! Esta es la ".($conexiones+1)."ª vez que te conectas, te conectaste por última vez el ".date('d/m/Y H:i:s', strtotime($fecha))."</p>";
                 }
             ?>
         </header>
@@ -61,7 +68,7 @@
         <footer>
             <a href="../../index.html">Luis Ferreras</a>
             <a href="../../208DWESProyectoDWES/indexProyectoDWES.php">DWES</a>
-            <a href="https://github.com/LuisFerrGon/208DWESLoginLogoffTema5">GitHub</a>
+            <a href="https://github.com/LuisFerrGon/208DWESLoginLogoffTema5" target="_blank">GitHub</a>
         </footer>
     </body>
 </html>
