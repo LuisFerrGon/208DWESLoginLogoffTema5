@@ -28,9 +28,9 @@
     
     $idioma=isset($_COOKIE['idioma']) ? $_COOKIE['idioma'] : 'en';
     $oUsuarioActivo=$_SESSION['usuarioDAW208LoginLogoffTema5'];
-                $descripcion=$oUsuarioActivo->T01_DescUsuario;
-                $fecha=$oUsuarioActivo->T01_FechaHoraUltimaConexion;
-                $conexiones=$oUsuarioActivo->T01_NumConexiones;
+        $descripcion=$oUsuarioActivo->T01_DescUsuario;
+        $fecha=$oUsuarioActivo->T01_FechaHoraUltimaConexion;
+        $conexiones=$oUsuarioActivo->T01_NumConexiones;
     $mensaje=[
         'es'=>[
            0=>"¡Bienvenido ".$descripcion."! Esta es la primera vez que te conectas.",

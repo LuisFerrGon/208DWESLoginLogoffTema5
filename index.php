@@ -51,4 +51,3 @@
         </footer>
     </body>
 </html>
-<!--https://github.com/settings/two_factor_authentication/setup/intro-->
