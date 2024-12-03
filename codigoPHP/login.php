@@ -117,20 +117,34 @@
             <div id="formulariologin">
                 <h2>Log in</h2>
                 <form name="plantilla" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" novalidate>
-                    <!-- Campo de texto alfabetico obligatorio -->
-                    <div class="form-group">
-                        <label for="codigoUsuario">Usuario:</label>
-                        <input type="text" id="codigoUsuario" name="codigoUsuario" maxlength="<?php echo (T_MAX_ALFABETICO); ?>" minlength="<?php echo (T_MIN_ALFABETICO); ?>" style="background-color: lightyellow" required>
-                    </div>
-                    <!-- Campo de contraseña obligatorio -->
-                    <div class="form-group">
-                        <label for="contrasenaUsuario">Contraseña:</label>
-                        <input type="password" id="contrasenaUsuario" name="contrasenaUsuario" maxlength="<?php echo (MAX_PASS); ?>" minlength="<?php echo (MIN_PASS); ?>" style="background-color: lightyellow" required>
-                    </div>   
-                    <!-- Botón de envío -->
-                    <div class="form-group">
-                        <input id="login" name="login" type="submit" value="Iniciar sesión">
-                    </div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <!-- Campo de texto alfabetico obligatorio -->
+                                <td>
+                                    <label for="codigoUsuario">Usuario:</label>
+                                </td><td>
+                                    <input type="text" id="codigoUsuario" name="codigoUsuario" maxlength="<?php echo (T_MAX_ALFABETICO); ?>" minlength="<?php echo (T_MIN_ALFABETICO); ?>" style="background-color: lightyellow" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <!-- Campo de contraseña obligatorio -->
+                                <td>
+                                    <label for="contrasenaUsuario">Contraseña:</label>
+                                </td><td>
+                                    <input type="password" id="contrasenaUsuario" name="contrasenaUsuario" maxlength="<?php echo (MAX_PASS); ?>" minlength="<?php echo (MIN_PASS); ?>" style="background-color: lightyellow" required>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <!-- Botón de envío -->
+                                <td>
+                                    <input id="login" name="login" type="submit" value="Iniciar sesión">
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </form>
             </div>
         </main>
