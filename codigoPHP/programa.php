@@ -1,7 +1,7 @@
 <?php
     /**
      * @author Luis Ferreras González
-     * @version 2024/12/02
+     * @version 2024/12/03
      */
 
     //Se inicia o reanuda la sesión
@@ -31,10 +31,18 @@
         $descripcion=$oUsuarioActivo->T01_DescUsuario;
         $fecha=$oUsuarioActivo->T01_FechaHoraUltimaConexion;
         $conexiones=$oUsuarioActivo->T01_NumConexiones;
-    $mensaje=[
+    $bienvenida=[
         'es'=>[
            0=>"¡Bienvenido ".$descripcion."! Esta es la primera vez que te conectas.",
            1=>"¡Bienvenido de nuevo ".$descripcion."! Esta es la ".($conexiones+1)."ª vez que te conectas, te conectaste por última vez el ".date('d/m/Y H:i:s', strtotime($fecha))
+        ],
+        'en'=>[
+           0=>"Welcome ".$descripcion."! This is the first time you log in.",
+           1=>"Welcome again ".$descripcion."! You have logged in ".($conexiones+1)." times, last time was ".date('m/d/Y H:i:s', strtotime($fecha))
+        ],
+        'pt' => [
+            0 => "Bem-vindo ".$descripcion."! Esta é a primeira vez que você se conecta.",
+            1 => "Bem-vindo de volta ".$descripcion."! Esta é a ".($conexiones+1)." vez que você se conecta, e você se conectou pela última vez em ".date('d/m/Y H:i:s', strtotime($fecha))
         ]
     ];
 ?>
@@ -55,11 +63,7 @@
                 <input type="submit" name="detalle" value="Detalle">
             </form>
             <?php
-                if($conexiones==0){
-                    echo "<p>¡Bienvenido ".$descripcion."! Esta es la primera vez que te conectas.</p>";
-                }else{
-                    echo "<p>¡Bienvenido de nuevo ".$descripcion."! Esta es la ".($conexiones+1)."ª vez que te conectas, te conectaste por última vez el ".date('d/m/Y H:i:s', strtotime($fecha))."</p>";
-                }
+                echo "<p>".$bienvenida[$idioma][$conexiones!=0]."</p>";
             ?>
         </header>
         <main>
