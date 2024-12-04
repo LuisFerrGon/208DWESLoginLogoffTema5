@@ -1,9 +1,12 @@
 <?php
     /**
      * @author Luis Ferreras González
-     * @version 2024/12/02
+     * @version 2024/12/04
      */
 
+    //Se cambia si se hace un cambio en la aplicación
+    $fechaUltimaRevision= strtotime("04 December 2024");
+    
     //Se inicia o reanuda la sesión
     session_start();
 
@@ -69,6 +72,7 @@
             <a href="../../index.html">Luis Ferreras</a>
             <a href="../../208DWESProyectoDWES/indexProyectoDWES.php">DWES</a>
             <a href="https://github.com/LuisFerrGon/208DWESLoginLogoffTema5" target="_blank">GitHub</a>
+            <p>Última revisión: <?php echo(date('d/m/Y', $fechaUltimaRevision))?></p>
         </footer>
     </body>
 </html>

@@ -33,10 +33,19 @@ main{
         }
         a:hover{
             color: var(--color6);
+            font-size: 20px;
+        }
+        #idiomaEscogido{
+            color: var(--color6);
+            font-size: 20px;
         }
         button{
             position: absolute;
             right: 0;
+            a:hover{
+                color: var(--color3);
+                font-size: calc(40px/3);
+            }
         }
     }
     #mapaAplicacion{
@@ -66,4 +75,7 @@ footer{
     position: fixed;
     bottom: 0;
     width: 100%;
+    p{
+        color: var(--color3);
+    }
 }

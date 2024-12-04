@@ -1,9 +1,12 @@
 <?php
     /**
      * @author Luis Ferreras González
-     * @version 2024/12/03
+     * @version 2024/12/04
      */
 
+    //Se cambia si se hace un cambio en la aplicación
+    $fechaUltimaRevision= strtotime("04 December 2024");
+    
     //Se inicia o reanuda la sesión
     session_start();
 
@@ -56,23 +59,29 @@
     <body>
         <header>
             <h1>Programa</h1>
-            <form>
-                <input type="submit" name="cerrarsesion" value="Cerrar Sesión">
-            </form>
-            <form>
-                <input type="submit" name="detalle" value="Detalle">
-            </form>
+        </header>
+        <main>
+            <div id="idiomas">
+                <a href="?idioma=es" <?php if($idioma=="es"){echo "id='idiomaEscogido'";}?>>Español</a>
+                <a href="?idioma=en" <?php if($idioma=="en"){echo "id='idiomaEscogido'";}?>>Inglés</a>
+                <a href="?idioma=pt" <?php if($idioma=="pt"){echo "id='idiomaEscogido'";}?>>Portugués</a>
+                <form>
+                    <input type="submit" name="cerrarsesion" value="Cerrar Sesión">
+                </form>
+                <form>
+                    <input type="submit" name="detalle" value="Detalle">
+                </form>
+            </div>
             <?php
                 echo "<p>".$bienvenida[$idioma][$conexiones!=0]."</p>";
             ?>
-        </header>
-        <main>
             <div style='height: 30px'></div>
         </main>
         <footer>
             <a href="../../index.html">Luis Ferreras</a>
             <a href="../../208DWESProyectoDWES/indexProyectoDWES.php">DWES</a>
             <a href="https://github.com/LuisFerrGon/208DWESLoginLogoffTema5" target="_blank">GitHub</a>
+            <p>Última revisión: <?php echo(date('d/m/Y', $fechaUltimaRevision))?></p>
         </footer>
     </body>
 </html>
