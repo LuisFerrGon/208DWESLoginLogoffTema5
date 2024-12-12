@@ -1,11 +1,11 @@
 <?php
     /**
      * @author Luis Ferreras González
-     * @version 2024/12/04
+     * @version 2024/12/12
      */
 
     //Se cambia si se hace un cambio en la aplicación
-    $fechaUltimaRevision= strtotime("04 December 2024");
+    $fechaUltimaRevision= strtotime("12 December 2024");
 
     //Se inicia o reanuda la sesión
     session_start();
@@ -55,11 +55,12 @@
             try{
                 $conn = new PDO(SERVIDOR, USUARIO, CONTRASENA);
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $query=$conn->prepare("SELECT * FROM T01_Usuario WHERE T01_CodUsuario=:usuario AND T01_Password=SHA2(:contrasena, 256);");
                 $codigo=$_REQUEST['codigoUsuario'];
                 $pass=$codigo.$_REQUEST['contrasenaUsuario'];
-                $query->bindParam(':usuario', $codigo);
-                $query->bindParam(':contrasena', $pass);
+                $queryBuscar=<<<QUERY
+                    SELECT * FROM T01_Usuario WHERE T01_CodUsuario='{$codigo}' AND T01_Password=SHA2('{$pass}', 256);
+                QUERY;
+                $query=$conn->prepare($queryBuscar);
                 $query->execute();
                 $oUsuarioActivo=$query->fetchObject();
                 if($oUsuarioActivo==null){
@@ -90,11 +91,13 @@
         try{
             $conn = new PDO(SERVIDOR, USUARIO, CONTRASENA);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $update=$conn->prepare("UPDATE T01_Usuario SET T01_NumConexiones=T01_NumConexiones+1, T01_FechaHoraUltimaConexion=NOW() WHERE T01_CodUsuario=:usuario AND T01_Password=:contrasena;");
-            $update->bindParam(':usuario', $oUsuarioActivo->T01_CodUsuario);
-            $update->bindParam(':contrasena', $oUsuarioActivo->T01_Password);
+            $queryActualizar=<<<QUERY
+                UPDATE T01_Usuario SET T01_NumConexiones=T01_NumConexiones+1, T01_FechaHoraUltimaConexion=NOW()
+                    WHERE T01_CodUsuario='{$_SESSION['usuarioDAW208LoginLogoffTema5']->T01_CodUsuario}'
+                    AND T01_Password='{$_SESSION['usuarioDAW208LoginLogoffTema5']->T01_Password}';
+            QUERY;
+            $update=$conn->prepare($queryActualizar);
             $update->execute();
-            $_SESSION['usuarioDAW208LoginLogoffTema5']=$oUsuarioActivo;
             header("Location: programa.php");
         }catch(PDOException $e) {
             echo "Conexión fallida: " . $e->getMessage();

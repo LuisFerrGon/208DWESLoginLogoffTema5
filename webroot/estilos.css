@@ -47,6 +47,18 @@ main{
                 font-size: calc(40px/3);
             }
         }
+        form{
+            position: absolute;
+            right: 0;
+            top: -40%;
+            input{
+                color: var(--color3);
+                font-size: calc(40px/3);
+            }
+        }
+        form:nth-of-type(2){
+            right: 100px;
+        }
     }
     #mapaAplicacion{
         display: flex;

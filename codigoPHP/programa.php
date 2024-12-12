@@ -1,11 +1,11 @@
 <?php
     /**
      * @author Luis Ferreras González
-     * @version 2024/12/04
+     * @version 2024/12/12
      */
 
     //Se cambia si se hace un cambio en la aplicación
-    $fechaUltimaRevision= strtotime("04 December 2024");
+    $fechaUltimaRevision= strtotime("12 December 2024");
     
     //Se inicia o reanuda la sesión
     session_start();
@@ -54,7 +54,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Luis Ferreras</title>
-        <link rel="stylesheet" type="text/css" href="../webroot/estilosEjercicios.css">
+        <link rel="stylesheet" type="text/css" href="../webroot/estilos.css">
     </head>
     <body>
         <header>

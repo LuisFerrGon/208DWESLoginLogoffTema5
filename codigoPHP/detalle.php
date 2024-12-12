@@ -1,15 +1,16 @@
 <?php
     /**
      * @author Luis Ferreras González
-     * @version 2024/12/04
+     * @version 2024/12/12
      */
 
     //Se cambia si se hace un cambio en la aplicación
-    $fechaUltimaRevision= strtotime("04 December 2024");
+    $fechaUltimaRevision= strtotime("12 December 2024");
     
     //Se inicia o reanuda la sesión
     session_start();
 
+    $idioma=isset($_COOKIE['idioma']) ? $_COOKIE['idioma'] : 'en';
     //Si no se inició sesión anteriormente
     if(!isset($_SESSION['usuarioDAW208LoginLogoffTema5'])){
         header("Location: login.php");
@@ -27,16 +28,21 @@
     <head>
         <meta charset="UTF-8">
         <title>Luis Ferreras</title>
-        <link rel="stylesheet" type="text/css" href="../webroot/estilosEjercicios.css">
+        <link rel="stylesheet" type="text/css" href="../webroot/estilos.css">
     </head>
     <body>
         <header>
             <h1>Detalle</h1>
-            <form>
-                <input type="submit" name="programa" value="Volver">
-            </form>
         </header>
         <main>
+            <div id="idiomas">
+                <a href="?idioma=es" <?php if($idioma=="es"){echo "id='idiomaEscogido'";}?>>Español</a>
+                <a href="?idioma=en" <?php if($idioma=="en"){echo "id='idiomaEscogido'";}?>>Inglés</a>
+                <a href="?idioma=pt" <?php if($idioma=="pt"){echo "id='idiomaEscogido'";}?>>Portugués</a>
+                <form>
+                    <input type="submit" name="programa" value="Volver">
+                </form>
+            </div>
             <?php
                 function mostrarSuperglobal($nombre, $variable){
                     if(!empty($variable)){
